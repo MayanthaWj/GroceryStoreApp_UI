@@ -1,0 +1,355 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GroceryStoreApp.View.HomePage"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout>
+            <!-- Header -->
+            <Frame Padding="0" HeightRequest="130" CornerRadius="10" >
+                <Grid BackgroundColor="#E1AF00" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Image 
+                    Source="GroceryLogo2.png" 
+                    Grid.Row="0" Grid.Column="1" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center" 
+                    WidthRequest="120" 
+                    HeightRequest="100"
+                    Margin="0"/>
+
+                <StackLayout 
+                    Grid.Row="0" 
+                    Grid.Column="2" 
+                    Orientation="Horizontal" 
+                    HorizontalOptions="End" 
+                    VerticalOptions="Center"
+                    Padding="5">
+                        <Label Text="Hello.user!" FontSize="8"/>
+                        <Image Source="UserIcon3.png" WidthRequest="20" HeightRequest="20" />
+                </StackLayout>
+            </Grid>
+            </Frame>
+            <ScrollView>
+                <StackLayout>
+                    <!-- SearchBar -->
+                        <Frame BorderColor="Gray" HasShadow="False" Margin="10" HeightRequest="20" Padding="0">
+                            <SearchBar Placeholder="Search Vegetables, Foods, etc"
+                                FontSize="8" 
+                                TextColor="Black"
+                                PlaceholderColor="Gray"
+                                HeightRequest="20"
+                                />
+                        </Frame>
+            
+                    <!-- OfferView-->
+                        <StackLayout HeightRequest="100" Margin="10,0,10,0" >
+                            <CarouselView 
+                                        ItemsSource="{Binding OfferViewList}" 
+                                        IndicatorView="indicatorView2" >
+                                <CarouselView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Frame  CornerRadius="10" BackgroundColor="#F7E7B3" Margin="10,0,10,0" HeightRequest="50" Padding="20,15,10,20">
+                                            <StackLayout>
+                                               <Label
+                                                    Text="{Binding OfferHeader}"
+                                                    TextColor="#1B9D07"
+                                                    FontSize="12"/>
+                                               <Label
+                                                    Text="{Binding OfferBody1}"
+                                                    FontSize="8"/>
+                                               <Label
+                                                    Text="{Binding OfferBody2}"
+                                                    FontSize="8"
+                                                    Margin="0,-10,0,0"/>
+                                               <Button
+                                                    Text="Shop Now"
+                                                    FontSize="8"
+                                                    BackgroundColor="#1B9D07"
+                                                    TextColor="White"
+                                                    CornerRadius="5"
+                                                    TextTransform="None"
+                                                    WidthRequest="60" 
+                                                    HeightRequest="15"
+                                                    VerticalOptions="Center"
+                                                    HorizontalOptions="Start"
+                                                    Padding="5,0,5,0"
+                                               />
+                                           </StackLayout>
+                                        </Frame>
+                                    </DataTemplate>
+                                 </CarouselView.ItemTemplate>
+                            </CarouselView>
+                            <IndicatorView 
+                                x:Name="indicatorView2"
+                                IndicatorColor="Gray"
+                                SelectedIndicatorColor="green"
+                                IndicatorsShape="Circle"
+                                HorizontalOptions="Center"
+                                ItemsSource="{Binding OfferViewList }">
+                            </IndicatorView>
+                        </StackLayout>
+
+                    <!--CategoryView-->
+                        <Frame Margin="10" HeightRequest="100"  HasShadow="False">
+                            <StackLayout >
+                                <StackLayout >
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="90"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label
+                                                Grid.Row="0"
+                                                Grid.Column="0"
+                                                Text="Category" 
+                                                Margin="-15,-15,0,0" 
+                                                FontAttributes="Bold" 
+                                                FontSize="12" 
+                                                TextColor="Black"
+                                                HorizontalOptions="Start"
+                                                VerticalOptions="Center"/>
+                                        <Label 
+                                                Grid.Row="0" 
+                                                Grid.Column="3" 
+                                                Text="see all"
+                                                Margin="-15,-15,0,0"
+                                                TextColor="green"
+                                                FontSize="8"
+                                                HorizontalOptions="End"
+                                                VerticalOptions="Center"/>
+                                    </Grid>
+                                </StackLayout>
+                                <CollectionView ItemsSource="{Binding CategoryItemList}" ItemsLayout="HorizontalList" >
+                                            <CollectionView.ItemTemplate>
+                                                <DataTemplate>
+                                                    <StackLayout>
+                                                    <Frame 
+                                                        BackgroundColor="#F7E8AF" 
+                                                        CornerRadius="50" 
+                                                        WidthRequest="5" 
+                                                        HeightRequest="5"
+                                                        Margin="5"
+                                                        >
+                                                            <Image 
+                                                                Source="{Binding CategoryIcon}" 
+                                                                Aspect="Fill" 
+                                                                HorizontalOptions="Center" 
+                                                                VerticalOptions="Center"
+                                                                WidthRequest="50" 
+                                                                HeightRequest="50"/>
+                                                    </Frame>
+                                                    <Label 
+                                                        Text="{Binding CategoryName}" 
+                                                        HorizontalOptions="Center" 
+                                                        VerticalOptions="Center" 
+                                                        FontSize="8" 
+                                                        TextColor="Black" 
+                                                        FontAttributes="Bold"/>
+                                                    </StackLayout>
+                                                </DataTemplate>
+                                            </CollectionView.ItemTemplate>
+                                        </CollectionView>
+                                        <IndicatorView
+                                            x:Name="indicatorView"
+                                            IndicatorColor="Gray"
+                                            IndicatorsShape="Circle"
+                                            SelectedIndicatorColor="Green"
+                                            HorizontalOptions="Center"
+                                            ItemsSource="{Binding CategoryItemList}"                               
+                                        />        
+                            </StackLayout>
+                        </Frame>
+
+                    <!--BestDealView-->
+                        <Frame Margin="10,0,10,0" HasShadow="False">
+                            <StackLayout>
+                                <StackLayout >
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="90"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label
+                                            Grid.Row="0"
+                                            Grid.Column="0"
+                                            Text="Best Deal" 
+                                            Margin="-15,-15,0,0" 
+                                            FontAttributes="Bold" 
+                                            FontSize="12" 
+                                            TextColor="Black"
+                                            HorizontalOptions="Start"
+                                            VerticalOptions="Center"/>
+                                        <Label 
+                                            Grid.Row="0" 
+                                            Grid.Column="3" 
+                                            Text="see all"
+                                            Margin="-15,-15,0,0"
+                                            TextColor="green"
+                                            FontSize="8"
+                                            HorizontalOptions="End"
+                                            VerticalOptions="Center"/>
+                                    </Grid>
+                                </StackLayout>
+                                <StackLayout Padding="0">
+                                    <CollectionView 
+                                            ItemsSource="{Binding BestDealItemList}" 
+                                            ItemsLayout="HorizontalList">
+                                            <CollectionView.ItemTemplate>
+                                                <DataTemplate >
+                                                    <Frame Margin="0" Padding="5">
+                                                        <Frame 
+                                                               HorizontalOptions="StartAndExpand" 
+                                                               VerticalOptions="StartAndExpand"
+                                                               WidthRequest="80"
+                                                               HeightRequest="130"
+                                                               Margin="0"
+                                                               Padding="8"
+                                                               BorderColor="Gray" >
+                                                            <Grid>
+                                                                <Grid.RowDefinitions>
+                                                                    <RowDefinition Height="Auto" />
+                                                                    <RowDefinition Height="Auto" />
+                                                                    <RowDefinition Height="Auto" />
+                                                                    <RowDefinition Height="Auto" />
+                                                                </Grid.RowDefinitions>
+                                                                <Grid.ColumnDefinitions>
+                                                                    <ColumnDefinition Width="auto"/>
+                                                                    <ColumnDefinition Width="*"/>
+                                                                    <ColumnDefinition Width="Auto"/>
+                                                                </Grid.ColumnDefinitions>
+
+                                                                <Frame
+                                                                   Grid.Row="0"
+                                                                   Grid.ColumnSpan="3"
+                                                                   BackgroundColor="#F5F5F5"
+            
+                                                                   WidthRequest="100"
+                                                                   HeightRequest="70"
+                                                                   Margin="0"
+                                                                   Padding="0">
+                                                                    <Image
+                                                                       Source="{Binding BestItemIcon}" 
+                                                                       Aspect="Fill" 
+                                                                       HorizontalOptions="Center" 
+                                                                       VerticalOptions="Center"
+                                                                       WidthRequest="50" 
+                                                                       HeightRequest="50"
+                                                                       Margin="0"/>
+                                                                </Frame>
+                                                                <Label
+                                                                    Grid.Row="1"
+                                                                    Grid.Column="0"
+                                                                    Grid.ColumnSpan="3"
+                                                                    Text="{Binding BestItemName}" 
+                                                                    HorizontalOptions="Start" 
+                                                                    VerticalOptions="Center" 
+                                                                    FontSize="8" 
+                                                                    TextColor="Black" />
+                                                                <Label
+                                                                    Grid.Row="2"
+                                                                    Grid.Column="0"
+        
+                                                                    Text="1kg" 
+                                                                    HorizontalOptions="Center" 
+                                                                    VerticalOptions="Center" 
+                                                                    FontSize="6" 
+                                                                    TextColor="Gray" />
+                                                                <Label
+                                                                   Grid.Row="2"
+                                                                   Grid.Column="2"
+                                                                   Text="1kg" 
+                                                                   HorizontalOptions="Center" 
+                                                                   VerticalOptions="Center" 
+                                                                   FontSize="6" 
+                                                                   TextColor="Gray" />
+                                                                <Button
+                                                                    Text="Add to cart"
+                                                                    Grid.Row="3"
+                                                                    Grid.Column="2"
+                                                                    BackgroundColor="Green"
+                                                                    TextColor="White"
+                                                                    FontSize="5"
+                                                                    CornerRadius="1"
+                                                                    TextTransform="None"
+                                                                    WidthRequest="40" 
+                                                                    HeightRequest="15"
+                                                                    VerticalOptions="Center"
+                                                                    HorizontalOptions="Center"
+                                                                    Padding="0"
+                                                                    Margin="0"/>
+                                                            </Grid>
+                                                        </Frame>
+                                                    </Frame>
+
+                                                </DataTemplate>
+                                            </CollectionView.ItemTemplate>
+                                        </CollectionView>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                </StackLayout>
+            </ScrollView>
+        
+            <!--Footer-->
+                <Frame 
+                 BackgroundColor="#E1AF00"
+                 HorizontalOptions="Center" 
+                 VerticalOptions="EndAndExpand"
+                 HeightRequest="70"
+                 Padding="5"
+                 WidthRequest="500"
+                 CornerRadius="10">
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <StackLayout Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center" Spacing="5" >
+                        <Image Source="HomeIcon.png" HeightRequest="15"/>
+                        <Label Text="Home" HorizontalOptions="Center" VerticalOptions="End" FontSize="8" TextColor="Green" />
+                    </StackLayout>
+
+                    <StackLayout Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center" Spacing="5" >
+                        <Image Source="CartIcon.png" HeightRequest="15"/>
+                        <Label Text="My Cart" HorizontalOptions="Center" VerticalOptions="End" FontSize="8" TextColor="Green" />
+                    </StackLayout>
+
+                    <StackLayout Grid.Column="2" VerticalOptions="Center" HorizontalOptions="Center" Spacing="5" >
+                        <Image Source="HeartIcon.png" HeightRequest="15"/>
+                        <Label Text="Favourite" HorizontalOptions="Center" VerticalOptions="End" FontSize="8" TextColor="Green" />
+                    </StackLayout>
+
+                    <StackLayout Grid.Column="3" VerticalOptions="Center" HorizontalOptions="Center" Spacing="5" >
+                        <Image Source="OrderIcon.png" HeightRequest="15"/>
+                        <Label Text="My Order" HorizontalOptions="Center" VerticalOptions="End" FontSize="8" TextColor="Green" />
+                    </StackLayout>
+
+                    <StackLayout Grid.Column="4" VerticalOptions="Center" HorizontalOptions="Center" Spacing="5" >
+                        <Image Source="UserIcon.png" HeightRequest="15"/>
+                        <Label Text="Profile" HorizontalOptions="Center" VerticalOptions="End" FontSize="8" TextColor="Green" />
+                    </StackLayout>
+                </Grid>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

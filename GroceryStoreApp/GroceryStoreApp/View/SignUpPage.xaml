@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GroceryStoreApp.View.SignUpPage"
+             NavigationPage.HasNavigationBar="False">
+    <Grid>
+    <!-- Background image -->
+        <Image Source="BG2.jpg" 
+           Aspect="AspectFill" 
+           VerticalOptions="FillAndExpand" 
+           HorizontalOptions="FillAndExpand"/>
+
+        <Grid>
+            <!-- Bottom area with login and signup buttons -->        
+            <Frame Grid.Row="1"
+                   BackgroundColor="#FFCA28"
+                   VerticalOptions="EndAndExpand"
+                   HorizontalOptions="FillAndExpand"
+                   Padding="20"
+                   >
+                <StackLayout>
+                    <Label Text="Welcome!" 
+                        HorizontalOptions="Center" 
+                        VerticalOptions="CenterAndExpand" 
+                        FontAttributes="Bold"
+                        FontSize="Large"
+                        TextColor="Black"/>
+
+                    <StackLayout Padding="10">
+                        <Label
+                            Text="Find your daily"
+                            FontSize="Medium"
+                            HorizontalOptions="Center" 
+                            VerticalOptions="CenterAndExpand" />
+                        <Label
+                            Text="necessary groceries"
+                            FontSize="Medium"
+                            HorizontalOptions="Center" 
+                            VerticalOptions="CenterAndExpand" 
+                            Margin="0,-10,0,0"/>
+                    </StackLayout>
+
+                    <StackLayout HorizontalOptions="Center" 
+                          Spacing="10"
+                          Padding="5">
+
+                        <Button Text="Login" 
+                             BackgroundColor="Green"
+                             TextColor="White"
+                             CornerRadius="20"
+                             WidthRequest="150"
+                             HeightRequest="40"
+                             TextTransform="None"
+                             Command="{Binding LoginButtonTapped}"/>
+
+                        <Button Text="Sign Up" 
+                             BackgroundColor="White"
+                             TextColor="#FFCA28"
+                             CornerRadius="20"
+                             WidthRequest="150"
+                             HeightRequest="40"
+                             TextTransform="None"/>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+        </Grid>
+    </Grid>
+</ContentPage>

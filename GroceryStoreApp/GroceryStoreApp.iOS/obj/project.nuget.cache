@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "3R6Koiz83iupTOncRUyr9L5LmJf3CAYVeZ06ITWYCvYNcCZoNXHETLyPa9giXctt7iRhK6d6Y/CFbPZsQKLyIQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\mayanthaw\\source\\repos\\GroceryStoreApp\\GroceryStoreApp\\GroceryStoreApp.iOS\\GroceryStoreApp.iOS.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\mayanthaw\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\mayanthaw\\.nuget\\packages\\xamarin.essentials\\1.7.0\\xamarin.essentials.1.7.0.nupkg.sha512",
+    "C:\\Users\\mayanthaw\\.nuget\\packages\\xamarin.forms\\5.0.0.2196\\xamarin.forms.5.0.0.2196.nupkg.sha512"
+  ],
+  "logs": []
+}

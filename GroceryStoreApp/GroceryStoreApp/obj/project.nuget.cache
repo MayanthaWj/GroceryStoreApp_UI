@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "bDU9KZ0iHVuGxNGuTGpNEPEhOq8810c7O2e3PsTLsyfCGLSyA31iDlgMx6DwT8I0vWcGV/AhprO0Th5d19rbow==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\mayanthaw\\source\\repos\\GroceryStoreApp\\GroceryStoreApp\\GroceryStoreApp\\GroceryStoreApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\mayanthaw\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\mayanthaw\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\mayanthaw\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\mayanthaw\\.nuget\\packages\\xamarin.essentials\\1.7.0\\xamarin.essentials.1.7.0.nupkg.sha512",
+    "C:\\Users\\mayanthaw\\.nuget\\packages\\xamarin.forms\\5.0.0.2196\\xamarin.forms.5.0.0.2196.nupkg.sha512"
+  ],
+  "logs": []
+}
